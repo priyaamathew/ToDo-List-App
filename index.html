@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>shopping list</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <section class="container">
+      <div>
+        <h1>To Do list</h1>
+        <label for=""  > ADD TASK</label>
+        <input type="text" placeholder="Type here"/>
+        <button id="btn1">ADD</button>
+      </div>
+      <ul class="w3-ul w3-hoverable"></ul>
+    </section>
+  </body>
+  <script>
+    const inputitem = document.querySelector("input");
+    const addbtn = document.querySelector("button");
+    const itemlist = document.querySelector("ul");
+    addbtn.addEventListener("click", additem);
+    function additem() {
+      const list = document.createElement("li");
+      const btn = document.createElement("button");
+      btn.innerHTML='Delete'
+      btn.style.backgroundColor='blue'
+      btn.style.border='none'
+      btn.style.marginLeft='200px'
+      btn.style.cursor='pointer'
+      list.textContent = inputitem.value.toUpperCase();
+      inputitem.value=''
+      list.appendChild(btn);
+      itemlist.appendChild(list);
+      btn.addEventListener('click',Del);
+      function Del(){
+        list.remove()
+      }
+      
+    }
+  </script>
+</html>
